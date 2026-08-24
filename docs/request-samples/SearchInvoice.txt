@@ -1,0 +1,22 @@
+<S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+	<SOAP-ENV:Header/>
+	<S:Body>
+		<ns7:SearchInvoice xmlns="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:ns2="http://schemas.datacontract.org/2004/07/EInvoice.Data.GIB.ShipmentPackage" xmlns:ns3="http://schemas.datacontract.org/2004/07/EInvoice.Data.GIB" xmlns:ns4="http://schemas.datacontract.org/2004/07/EInvoice.Service.Model.DataTypes.Enums" xmlns:ns5="http://schemas.datacontract.org/2004/07/EInvoice.Service.Model.DataModels" xmlns:ns6="http://schemas.datacontract.org/2004/07/EInvoice.Service.Model" xmlns:ns7="http://tempuri.org/" xmlns:ns8="http://schemas.microsoft.com/2003/10/Serialization/">
+			<ns7:request>
+				<ns6:CompanyTaxCode>4810173324</ns6:CompanyTaxCode>
+				<ns6:InvoiceDirection>Outgoing</ns6:InvoiceDirection>
+				<ns6:MinInvoiceDate>2022-01-01</ns6:MinInvoiceDate>
+				<ns6:PagingRequest>
+					<ns6:PageNumber>1</ns6:PageNumber>
+					<ns6:RecordsPerPage>25</ns6:RecordsPerPage>
+				</ns6:PagingRequest>
+				<ns6:ResultSet>
+					<ns6:IsAdditionalTaxIncluded>false</ns6:IsAdditionalTaxIncluded>
+					<ns6:IsArchiveIncluded>true</ns6:IsArchiveIncluded>
+					<ns6:IsInvoiceDetailIncluded>false</ns6:IsInvoiceDetailIncluded>
+					<ns6:IsXMLIncluded>false</ns6:IsXMLIncluded>
+				</ns6:ResultSet>
+			</ns7:request>
+		</ns7:SearchInvoice>
+	</S:Body>
+</S:Envelope>

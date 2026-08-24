@@ -1,0 +1,21 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:ein="http://schemas.datacontract.org/2004/07/EInvoice.Service.Model" xmlns:arr="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:DirectInvoice>
+         <!--Optional:-->
+         <tem:request>
+            <!--Optional:-->
+            <ein:CompanyTaxCode>1234567806</ein:CompanyTaxCode>
+            <!--Optional:-->
+            <ein:CompanyVendorNumber>1</ein:CompanyVendorNumber>
+            <!--Optional:-->
+            <ein:InvoiceEttnList>
+               <!--Zero or more repetitions:-->
+               <arr:string>3085ce49-2257-414a-a815-6e6198825f64</arr:string>
+            </ein:InvoiceEttnList>
+            <!--Optional:-->
+            <ein:NewCompanyVendorNumber>2</ein:NewCompanyVendorNumber>
+         </tem:request>
+      </tem:DirectInvoice>
+   </soapenv:Body>
+</soapenv:Envelope>

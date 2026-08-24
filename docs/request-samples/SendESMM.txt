@@ -1,0 +1,162 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:ein="http://schemas.datacontract.org/2004/07/EInvoice.Service.Model" xmlns:ein1="http://schemas.datacontract.org/2004/07/EInvoice.Service.Model.DataModels" xmlns:arr="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:SendESMM>
+         <!--Optional:-->
+         <tem:request>
+            <!--Optional:-->
+            <ein:CompanyTaxCode>4810173324</ein:CompanyTaxCode>
+            <!--Optional:-->
+            <ein:ESMM>
+               <!--Optional:
+               <ein1:ApprovalStatus>?</ein1:ApprovalStatus>
+-->
+
+               <!--Optional:-->
+               <ein1:BankAccountList>
+                  <!--Zero or more repetitions:-->
+                  <arr:decimal>5</arr:decimal>
+               </ein1:BankAccountList>
+               <!--Optional:-->
+               <!--Optional:-->
+               <ein1:CreatedDate>2022-11-29</ein1:CreatedDate>
+               <!--Optional:-->
+               <ein1:CrossRate>0</ein1:CrossRate>
+               <!--Optional:-->
+               <ein1:CurrencyCode>TRY</ein1:CurrencyCode>
+               <!--Optional:-->
+               <ein1:DetailList>
+                  <!--Zero or more repetitions:-->
+                  <ein1:ESMMDetail>
+                     <!--Optional:-->
+                     <ein1:GrossAmount>600</ein1:GrossAmount>
+                     <!--Optional:-->
+                     <ein1:NetAmount>600</ein1:NetAmount>
+                     <!--Optional:-->
+                     <ein1:PayableAmount>604</ein1:PayableAmount>
+                     <!--Optional:-->
+                     <ein1:ProductDescription>Soap Testten geldi</ein1:ProductDescription>
+                     <!--Optional:-->
+                     <ein1:ProductName>SOAP TEST</ein1:ProductName>
+                     <!--Optional:-->
+                     <ein1:StoppageTaxAmount>10</ein1:StoppageTaxAmount>
+                     <!--Optional:-->
+                     <ein1:StoppageTaxRate>5</ein1:StoppageTaxRate>
+                     <!--Optional:-->
+                     <ein1:StoppageTaxableAmount>10</ein1:StoppageTaxableAmount>
+                     <!--Optional:-->
+                     <ein1:TotalTaxAmount>10</ein1:TotalTaxAmount>
+                     <!--Optional:-->
+                     <ein1:VatTaxAmount>480</ein1:VatTaxAmount>
+                     <!--Optional:-->
+                     <ein1:VatTaxRate>8</ein1:VatTaxRate>
+                     <!--Optional:-->
+                     <ein1:VatTaxableAmount>480</ein1:VatTaxableAmount>
+                     <!--Optional:-->
+                     <ein1:WitholdingTaxAmount>0</ein1:WitholdingTaxAmount>
+                     <!--Optional:-->
+                     <ein1:WitholdingTaxCode>0</ein1:WitholdingTaxCode>
+                     <!--Optional:-->
+                     <ein1:WitholdingTaxRate>0</ein1:WitholdingTaxRate>
+                     <!--Optional:-->
+                     <ein1:WitholdingTaxableAmount>0</ein1:WitholdingTaxableAmount>
+                  </ein1:ESMMDetail>
+               </ein1:DetailList>
+               <!--Optional:-->
+               <ein1:DocumentDate>2022-11-29</ein1:DocumentDate>
+               <!--Optional:-->
+               <ein1:DocumentNumber>AAB2022000000209</ein1:DocumentNumber>
+               <!--Optional:-->
+               <ein1:ETTN>8ab0f469-9a83-4799-9424-06aa142987ba</ein1:ETTN>
+               <!--Optional:-->
+               <ein1:ExternalDocumentNumber>SOAP0000000001</ein1:ExternalDocumentNumber>
+               <!--Optional:-->
+               <ein1:FinancialAccountList>
+                  <!--Zero or more repetitions:-->
+                  <ein:FinancialAccount>
+                     <!--Optional:-->
+                     <ein:Currency>TRY</ein:Currency>
+                     <!--Optional:-->
+                     <ein:Iban>TR12345678954789521</ein:Iban>
+                     <!--Optional:-->
+                     <ein:PaymentNote>Soaptan sevgilerle</ein:PaymentNote>
+                  </ein:FinancialAccount>
+               </ein1:FinancialAccountList>
+               <!--Optional:-->
+               <ein1:GrossAmount>600</ein1:GrossAmount>
+               <!--Optional:-->
+               <ein1:Note>Soaptan sevgilerle....</ein1:Note>
+               <!--Optional:-->
+               <ein1:PayableAmount>1048</ein1:PayableAmount>
+               <!--Optional:
+               <ein1:PdfFile>cid:1332713779363</ein1:PdfFile>
+-->
+               <!--Optional:-->
+               <ein1:Receiver>
+                  <!--Optional:-->
+                  <ein:Address>
+                     <!--Optional:-->
+                     <ein:BoulevardAveneuStreetName>Deneme</ein:BoulevardAveneuStreetName>
+                     <!--Optional:-->
+                     <ein:BuildingName>Deneme</ein:BuildingName>
+                     <!--Optional:-->
+                     <ein:BuildingNumber>12</ein:BuildingNumber>
+                     <!--Optional:-->
+                     <ein:CityCode>12</ein:CityCode>
+                     <!--Optional:-->
+                     <ein:CityName>Bingöl</ein:CityName>
+                     <!--Optional:-->
+                     <ein:EMail>deneme@deneme.com</ein:EMail>
+                     <!--Optional:-->
+                     <ein:FaxNumber>11111</ein:FaxNumber>
+                     <!--Optional:-->
+                     <ein:PostalCode>111</ein:PostalCode>
+                     <!--Optional:-->
+                     <ein:TaxOfficeCode>11111</ein:TaxOfficeCode>
+                     <!--Optional:-->
+                     <ein:TaxOfficeName>Deneme</ein:TaxOfficeName>
+                     <!--Optional:-->
+                     <ein:TelephoneNumber>2222222</ein:TelephoneNumber>
+                     <!--Optional:-->
+                     <ein:TownCode>1</ein:TownCode>
+                     <!--Optional:-->
+                     <ein:TownName>Deneme</ein:TownName>
+                     <!--Optional:-->
+                     <ein:WebSite>www.deneme.com</ein:WebSite>
+                  </ein:Address>
+                  <!--Optional:-->
+                  <ein:ExternalReceiverCode>SOAP122</ein:ExternalReceiverCode>
+                  <!--Optional:-->
+                  <ein:InstallationNumber>1</ein:InstallationNumber>
+                  <!--Optional:-->
+                  <ein:ReceiverName>Soap Deneme</ein:ReceiverName>
+                  <!--Optional:-->
+                  <ein:ReceiverTaxCode>12</ein:ReceiverTaxCode>
+                  <!--Optional:-->
+                  <ein:SendingType>ELEKTRONIK</ein:SendingType>
+                  <!--Optional:-->
+                  <ein:VendorNumber>1</ein:VendorNumber>
+               </ein1:Receiver>
+               <!--Optional:-->
+               <ein1:TotalAmount>1048</ein1:TotalAmount>
+               <!--Optional:-->
+               <ein1:TotalCollectedVatAmount>490</ein1:TotalCollectedVatAmount>
+               <!--Optional:-->
+               <ein1:TotalStoppageAmount>10</ein1:TotalStoppageAmount>
+               <!--Optional:-->
+               <ein1:TotalTaxAmount>490</ein1:TotalTaxAmount>
+               <!--Optional:-->
+               <ein1:TotalVatAmount>480</ein1:TotalVatAmount>
+               <!--Optional:-->
+               <ein1:TotalWitholdingAmount>0</ein1:TotalWitholdingAmount>
+               <!--Optional:
+               <ein1:XmlFile>cid:1209187150374</ein1:XmlFile>
+-->
+               <!--Optional:
+               <ein1:XsltFile>cid:1406519838806</ein1:XsltFile>
+-->
+            </ein:ESMM>
+         </tem:request>
+      </tem:SendESMM>
+   </soapenv:Body>
+</soapenv:Envelope>

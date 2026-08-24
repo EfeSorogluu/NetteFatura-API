@@ -1,0 +1,15 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:ein="http://schemas.datacontract.org/2004/07/EInvoice.Service.Model">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:SendArchiveInvoiceReport>
+         <!--Optional:-->
+         <tem:request>
+            <!--Optional:-->
+            <ein:CompanyTaxCode>4810173324</ein:CompanyTaxCode>
+            <!--Optional:-->
+            <!--Optional:-->
+            <ein:LastDate>2022-10-01</ein:LastDate>
+         </tem:request>
+      </tem:SendArchiveInvoiceReport>
+   </soapenv:Body>
+</soapenv:Envelope>

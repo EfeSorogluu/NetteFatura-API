@@ -1,0 +1,45 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:ein="http://schemas.datacontract.org/2004/07/EInvoice.Service.Model" xmlns:arr="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:SearchAllInvoice>
+         <!--Optional:-->
+         <tem:request>
+            <!--Optional:-->
+            <ein:CompanyTaxCode>4810173324</ein:CompanyTaxCode>
+            
+            <ein:IncludeMainCompany>true</ein:IncludeMainCompany>
+
+            <!--Optional:-->
+            <ein:InvoiceDirection>Outgoing</ein:InvoiceDirection>
+            <!--Optional:-->
+            <ein:PagingRequest>
+               <!--Optional:-->
+               <ein:PageNumber>1</ein:PageNumber>
+               <!--Optional:-->
+               <ein:RecordsPerPage>50</ein:RecordsPerPage>
+            </ein:PagingRequest>
+            <!--Optional:-->
+            <ein:ResultSet>
+               <!--Optional:-->
+               <ein:IsAdditionalTaxIncluded>false</ein:IsAdditionalTaxIncluded>
+               <!--Optional:-->
+               <ein:IsArchiveIncluded>false</ein:IsArchiveIncluded>
+               <!--Optional:-->
+               <ein:IsAttachmentIncluded>false</ein:IsAttachmentIncluded>
+               <!--Optional:-->
+               <ein:IsExternalUrlIncluded>true</ein:IsExternalUrlIncluded>
+               <!--Optional:-->
+               <ein:IsHtmlIncluded>false</ein:IsHtmlIncluded>
+               <!--Optional:-->
+               <ein:IsInvoiceDetailIncluded>false</ein:IsInvoiceDetailIncluded>
+               <!--Optional:-->
+               <ein:IsPDFIncluded>true</ein:IsPDFIncluded>
+               <!--Optional:-->
+               <ein:IsXMLIncluded>false</ein:IsXMLIncluded>
+            </ein:ResultSet>
+            <!--Optional:-->
+            <ein:ScenarioType>TEMELFATURA</ein:ScenarioType>
+         </tem:request>
+      </tem:SearchAllInvoice>
+   </soapenv:Body>
+</soapenv:Envelope>

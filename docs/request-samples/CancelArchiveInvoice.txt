@@ -1,0 +1,23 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:ein="http://schemas.datacontract.org/2004/07/EInvoice.Service.Model">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:CancelArchiveInvoice>
+         <!--Optional:-->
+         <tem:request>
+            <!--Optional:-->
+            <ein:ArchiveInvoiceList>
+               <!--Zero or more repetitions:-->
+               <ein:ArchiveInvoiceCancellation>
+                  <!--Optional:-->
+                  <ein:CancellationReason>servis deneme</ein:CancellationReason>
+                  <!--Optional:-->
+                  <ein:ETTN>2d383bea-45ae-4776-a91e-7630de17450a</ein:ETTN>
+               </ein:ArchiveInvoiceCancellation>
+            </ein:ArchiveInvoiceList>
+            <!--Optional:-->
+            <ein:CompanyTaxCode>4810173324</ein:CompanyTaxCode>
+            <!--Optional:-->
+         </tem:request>
+      </tem:CancelArchiveInvoice>
+   </soapenv:Body>
+</soapenv:Envelope>

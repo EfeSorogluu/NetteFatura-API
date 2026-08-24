@@ -1,0 +1,16 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:ein="http://schemas.datacontract.org/2004/07/EInvoice.Service.Model">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:SendArchiveInvoiceMail>
+         <!--Optional:-->
+         <tem:request>
+            <!--Optional:-->
+            <ein:CompanyTaxCode>4810173324</ein:CompanyTaxCode>
+            <!--Optional:-->
+            <ein:Email>nihat.baz@is.net.tr</ein:Email>
+            <!--Optional:-->
+            <ein:Ettn>9601b62d-b201-47b6-ab07-fc2004b6801f</ein:Ettn>
+         </tem:request>
+      </tem:SendArchiveInvoiceMail>
+   </soapenv:Body>
+</soapenv:Envelope>

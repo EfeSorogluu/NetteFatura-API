@@ -1,0 +1,35 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:ein="http://schemas.datacontract.org/2004/07/EInvoice.Service.Model" xmlns:arr="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:SearchDespatchAdvice>
+         <!--Optional:-->
+         <tem:request>
+            <!--Optional:-->
+            <ein:CompanyTaxCode>4810173324</ein:CompanyTaxCode>
+            <!--Optional:-->
+            <ein:DespatchAdviceDirection>Outgoing</ein:DespatchAdviceDirection>
+            <!--Optional:-->
+            <ein:Ettn>a7ee8084-975b-497c-b475-529c40e5d23a</ein:Ettn>
+            <!--Optional:-->
+            <!--Optional:-->
+            <ein:PagingRequest>
+               <!--Optional:-->
+               <ein:PageNumber>1</ein:PageNumber>
+               <!--Optional:-->
+               <ein:RecordsPerPage>25</ein:RecordsPerPage>
+            </ein:PagingRequest>
+            <!--Optional:-->
+            <ein:ResultSet>
+               
+               <ein:IsArchiveIncluded>false</ein:IsArchiveIncluded>
+               <ein:IsAttachmentIncluded>false</ein:IsAttachmentIncluded>
+               <ein:IsDespatchAdviceDetailIncluded>false</ein:IsDespatchAdviceDetailIncluded>
+               <ein:IsHtmlIncluded>false</ein:IsHtmlIncluded>
+               <ein:IsPDFIncluded>false</ein:IsPDFIncluded>
+               
+               <ein:IsXMLIncluded>true</ein:IsXMLIncluded>
+            </ein:ResultSet>
+         </tem:request>
+      </tem:SearchDespatchAdvice>
+   </soapenv:Body>
+</soapenv:Envelope>

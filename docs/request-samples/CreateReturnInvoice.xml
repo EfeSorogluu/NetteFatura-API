@@ -1,0 +1,22 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:ein="http://schemas.datacontract.org/2004/07/EInvoice.Service.Model">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:CreateReturnInvoice>
+         <tem:request>
+            <ein:CompanyTaxCode>4810173324</ein:CompanyTaxCode>
+            <!--Optional:-->
+            <ein:CompanyVendorNumber></ein:CompanyVendorNumber>
+            <ein:ReturnInvoiceList>
+               <ein:ReturnInvoice>
+                  <ein:ETTN>5192b2d0-a1ea-4c64-85f6-2b49be12b3b0</ein:ETTN>
+                  <ein:Reason>Servis Denemesi</ein:Reason>
+               </ein:ReturnInvoice>
+               <ein:ReturnInvoice>
+                  <ein:ETTN>482d6d05-11be-431a-af9e-5f68d5b21e93</ein:ETTN>
+                  <ein:Reason>Servis Denemesi</ein:Reason>
+               </ein:ReturnInvoice>
+            </ein:ReturnInvoiceList>
+         </tem:request>
+      </tem:CreateReturnInvoice>
+   </soapenv:Body>
+</soapenv:Envelope>

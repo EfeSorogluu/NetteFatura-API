@@ -1,0 +1,112 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:ein="http://schemas.datacontract.org/2004/07/EInvoice.Service.Model" xmlns:arr="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:SendInvoice>
+         <tem:request>
+            <!--Faturayı düzenleyen firmaya ait VKN TCKN bilgisi-->
+            <ein:CompanyTaxCode>4810173324</ein:CompanyTaxCode>
+            <ein:Invoices>
+               <!--Zero or more repetitions:-->
+               <ein:Invoice>
+                  <ein:CurrencyCode>TRY</ein:CurrencyCode>
+                  <ein:CompanyBranchAddress>
+                     <ein:BoulevardAveneuStreetName>Anıttepe Mahallesi Gençlik Caddesi No:107 Çankaya / ANKARA
+                                06570</ein:BoulevardAveneuStreetName>
+                     <ein:BuildingNumber/>
+                     <ein:CityCode/>
+                     <ein:CityName>Ankara</ein:CityName>
+                     <ein:PostalCode/>
+                     <ein:TaxOfficeCode>0</ein:TaxOfficeCode>
+                     <ein:TaxOfficeName>ANKARA KURUMLAR</ein:TaxOfficeName>
+                     <ein:TownCode>0</ein:TownCode>
+                     <ein:TownName>ÇANKAYA</ein:TownName>
+                  </ein:CompanyBranchAddress>
+                  <!--Faturaya özel Id kod, her yeni faturada yeniden oluşturulmalıdır.-->
+                  <ein:ExternalInvoiceCode>TEST-20251223-6</ein:ExternalInvoiceCode>
+                  <ein:EydepBilgisi>AA</ein:EydepBilgisi>
+                  <ein:InvoiceAdditionalIdentityInfo>
+                     <ein:CustomerNo/>
+                  </ein:InvoiceAdditionalIdentityInfo>
+                  <!--Fatura ve diğer tarihler güncel olmalı:-->
+                  <ein:InvoiceDate>2025-11-14</ein:InvoiceDate>
+                  <ein:InvoiceDetails>
+                     <ein:InvoiceDetail>
+                        <ein:CurrencyCode>TRY</ein:CurrencyCode>
+                        <ein:DiscountRate>0.0000000000</ein:DiscountRate>
+                        <ein:DiscountAmount>0</ein:DiscountAmount>
+                        <ein:ExpenditureUnit>
+                           <!--Optional:-->
+                           <ein:Code>02</ein:Code>
+                           <!--Optional:-->
+                           <ein:ProductTraceId>02</ein:ProductTraceId>
+                           <!--Optional:-->
+                           <ein:SerialId>12</ein:SerialId>
+                        </ein:ExpenditureUnit>
+
+                        <ein:LineExtensionAmount>2500</ein:LineExtensionAmount>
+                        <ein:Product>
+                           <ein:ExternalProductCode>ABC001</ein:ExternalProductCode>
+                           <ein:MeasureUnit>NIU</ein:MeasureUnit>
+                           <ein:ProductName>ABC URUNU</ein:ProductName>
+                           <ein:ProductCode>ABC001</ein:ProductCode>
+                           <ein:ReceiverProductCode>ABC001</ein:ReceiverProductCode>
+                           <ein:UnitPrice>1250</ein:UnitPrice>
+                        </ein:Product>
+                        <ein:Quantity>2</ein:Quantity>
+                        <ein:VATAmount>250</ein:VATAmount>
+                        <ein:VATRate>10</ein:VATRate>
+                     </ein:InvoiceDetail>
+                  </ein:InvoiceDetails>
+                  <ein:InvoiceType>SATIS</ein:InvoiceType>
+                  <ein:KobiBilgisi>1</ein:KobiBilgisi>
+                  <ein:FinancialAccount>
+                     <!--Zero or more repetitions:-->
+                     <ein:FinancialAccount>
+                        <!--Optional:-->
+                        <ein:Currency>TRY</ein:Currency>
+                        <!--Optional:-->
+                        <ein:Iban>tr021044234923492349234</ein:Iban>
+                        <!--Optional:-->
+                        <ein:PaymentNote>-sadasd</ein:PaymentNote>
+                     </ein:FinancialAccount>
+                  </ein:FinancialAccount>
+                  <ein:Notes>
+                     <!--Zero or more repetitions:-->
+                     <arr:string>1. SATIR İŞBU FATURADAKİ ÖZELLİKLERİ</arr:string>
+                     <arr:string>2. SATIR ÖZEL</arr:string>
+                  </ein:Notes>
+                  <ein:Receiver>
+                     <ein:ReceiverName>İŞ NET ELEKTRONİK BİLGİ ÜRET.DAĞ.TİCVE İLET.HİZ. A.Ş.</ein:ReceiverName>
+                     <ein:ReceiverTaxCode>4810173324</ein:ReceiverTaxCode>
+                     <ein:RecipientType>NONE</ein:RecipientType>
+                     <ein:SendingType>NONE</ein:SendingType>
+                  </ein:Receiver>
+                  <ein:ReceiverBranchAddress>
+                     <ein:BoulevardAveneuStreetName>İÇMELER MAH. PİRİ REİS CAD.</ein:BoulevardAveneuStreetName>
+                     <ein:BuildingNumber>62</ein:BuildingNumber>
+                     <ein:CityCode>0</ein:CityCode>
+                     <ein:CityName>İSTANBUL</ein:CityName>
+                     <ein:PostalCode>0</ein:PostalCode>
+                     <ein:TaxOfficeCode>0</ein:TaxOfficeCode>
+                     <ein:TaxOfficeName>TUZLA</ein:TaxOfficeName>
+                     <ein:TownCode>0</ein:TownCode>
+                     <ein:TownName>TUZLA</ein:TownName>
+                  </ein:ReceiverBranchAddress>
+                  <!--e-Fatura Alıcısına ait posta kutusu yazılmaldır.-->
+                  <!--AddressBookServive, GetTaxPayer servisinden Etiket bilgisini sorgulayabilirsiniz.-->
+                  <ein:ReceiverInboxTag>urn:mail:defaultpk@isnet.com</ein:ReceiverInboxTag>
+                  <ein:ScenarioType>YATIRIMTESVIK</ein:ScenarioType>
+                  <ein:TotalDiscountAmount>0</ein:TotalDiscountAmount>
+                  <ein:TotalLineExtensionAmount>2500</ein:TotalLineExtensionAmount>
+                  <ein:TotalPayableAmount>2750</ein:TotalPayableAmount>
+                  <ein:TotalTaxInclusiveAmount>2750</ein:TotalTaxInclusiveAmount>
+                  <ein:TotalVATAmount>0</ein:TotalVATAmount>
+                  <ein:YtbContractDate>2025-12-12</ein:YtbContractDate>
+                  <!--Optional:-->
+                  <ein:YtbContractNumber>123456</ein:YtbContractNumber>
+               </ein:Invoice>
+            </ein:Invoices>
+         </tem:request>
+      </tem:SendInvoice>
+   </soapenv:Body>
+</soapenv:Envelope>

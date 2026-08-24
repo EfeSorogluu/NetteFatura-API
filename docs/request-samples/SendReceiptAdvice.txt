@@ -1,0 +1,161 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:ein="http://schemas.datacontract.org/2004/07/EInvoice.Service.Model" xmlns:arr="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:SendReceiptAdvice>
+         <!--Optional:-->
+         <tem:request>
+            <!--Optional:-->
+            <ein:CompanyTaxCode>4810173324</ein:CompanyTaxCode>
+            <!--Optional:-->
+            <ein:ReceiptAdvices>
+               <!--Zero or more repetitions:-->
+               <ein:ReceiptAdvice>
+                  <!--Optional:-->
+                  <ein:BuyerCustomerParty>
+                     <!--Optional:-->
+                     <ein:Address>
+                        <!--Optional:-->
+                        <ein:BoulevardAveneuStreetName>Deneme</ein:BoulevardAveneuStreetName>
+                        <!--Optional:-->
+                        <ein:BuildingName>Deneme Bina</ein:BuildingName>
+                        <!--Optional:-->
+                        <ein:BuildingNumber>12</ein:BuildingNumber>
+                        <!--Optional:-->
+                        <ein:CityCode>12</ein:CityCode>
+                        <!--Optional:-->
+                        <ein:CityName>Bingöl</ein:CityName>
+                        <!--Optional:-->
+                        <ein:EMail>deneme@deneme.com</ein:EMail>
+                     </ein:Address>
+                     <!--Optional:-->
+                     <ein:ReceiverName>isnet test</ein:ReceiverName>
+                     <!--Optional:-->
+                     <ein:ReceiverTaxCode>4810173324</ein:ReceiverTaxCode>
+                     <!--Optional:-->
+                     <ein:SendingType>KAGIT</ein:SendingType>
+                  </ein:BuyerCustomerParty>
+                  <!--Optional:-->
+                  <ein:CrossRate>0</ein:CrossRate>
+                  <!--Optional:-->
+                  <ein:CurrencyCode>TRY</ein:CurrencyCode>
+                  <!--Optional:-->
+                  <ein:DespatchSupplierParty>
+                     <!--Optional:-->
+                     <ein:Address>
+                        <!--Optional:-->
+                        <ein:BoulevardAveneuStreetName>Piri Reis Cd. Türkiye İş Bankası Tuzla Teknoloji ve Operasyon Merkezi D Blok</ein:BoulevardAveneuStreetName>
+                        <!--Optional:-->
+                        <ein:BuildingName>ISNET</ein:BuildingName>
+                        <!--Optional:-->
+                        <ein:BuildingNumber>62</ein:BuildingNumber>
+                        <!--Optional:-->
+                        <ein:CityCode>34</ein:CityCode>
+                        <!--Optional:-->
+                        <ein:CityName>Istanbul</ein:CityName>
+                        <!--Optional:-->
+                        <ein:EMail>nettecapdestek@is.net.tr</ein:EMail>
+                        <!--Optional:-->
+                        <ein:PostalCode>34947</ein:PostalCode>
+                        <!--Optional:-->
+                        <ein:TaxOfficeName>BOĞAZİÇİ KURUMLAR VERGİ DAİRESİ</ein:TaxOfficeName>
+                        <!--Optional:-->
+                        <ein:TelephoneNumber>8502900290</ein:TelephoneNumber>
+                     </ein:Address>
+                     <ein:ReceiverName>işnet test</ein:ReceiverName>
+                     <ein:ReceiverTaxCode>4810173324</ein:ReceiverTaxCode>
+                     <!--Optional:-->
+                     <ein:SendingType>ELEKTRONIK</ein:SendingType>
+                  </ein:DespatchSupplierParty>
+                  <ein:ExternalReceiptAdviceCode>fabdecfa-1f1a-426a-90c6-ed4088596e1a</ein:ExternalReceiptAdviceCode>
+                  <!--Optional:-->
+                  <ein:Notes>
+                     <!--Zero or more repetitions:-->
+                     <arr:string>Servis test</arr:string>
+                  </ein:Notes>
+                  <!--Optional:-->
+                  <ein:ReceiptAdviceCreationDate>2022-12-19</ein:ReceiptAdviceCreationDate>
+                  <!--Optional:-->
+                  <ein:ReceiptAdviceDate>2022-12-19</ein:ReceiptAdviceDate>
+                  <!--Optional:-->
+                  <ein:ReceiptAdviceDetails>
+                     <!--Zero or more repetitions:-->
+                     <ein:ReceiptAdviceDetail>
+                        <!--Optional:-->
+                        <ein:CurrencyCode>TRY</ein:CurrencyCode>
+                        <!--Optional:-->
+                        <ein:Notes>
+                           <!--Zero or more repetitions:-->
+                           <arr:string>Servis ürün test notu</arr:string>
+                        </ein:Notes>
+                        <!--Optional:-->
+                        <ein:Product>
+                           <ein:ExternalProductCode>BD564OM1235</ein:ExternalProductCode>
+                           <!--Optional:-->
+                           <ein:MeasureUnit>NIU</ein:MeasureUnit>
+                           <!--Optional:-->
+                           <ein:ProductCode>1212</ein:ProductCode>
+                           <!--Optional:-->
+                           <ein:ProductName>Deneme Servis</ein:ProductName>
+                           <!--Optional:-->
+                           <ein:ReceiverProductCode>2</ein:ReceiverProductCode>
+                           <!--Optional:-->
+                           <ein:UnitPrice>100</ein:UnitPrice>
+                        </ein:Product>
+                        <!--Optional:-->
+                        <ein:ReceivedDate>2022-12-19</ein:ReceivedDate>
+                        <!--Optional:-->
+                        <ein:RejectReasonCode>Red</ein:RejectReasonCode>
+                        <!--Optional:-->
+                        <ein:RejectReasons>
+                           <!--Zero or more repetitions:-->
+                           <arr:string>Servis test</arr:string>
+                        </ein:RejectReasons>
+                        <!--Optional:-->
+                        <ein:RejectedQuantity>1</ein:RejectedQuantity>
+                     </ein:ReceiptAdviceDetail>
+                  </ein:ReceiptAdviceDetails>
+                  
+                  <ein:ReceiptAdviceScenarioType>TEMELIRSALIYE</ein:ReceiptAdviceScenarioType>
+                  <ein:ReceiptAdviceType>SEVK</ein:ReceiptAdviceType>
+
+                  <ein:ReceiverInboxTag>urn:mail:defaultgb@isnet.com</ein:ReceiverInboxTag>
+
+                  <ein:RelatedDespatchAdviceEttn>33deb91f-b668-4cab-a665-cdf5a08d0a54</ein:RelatedDespatchAdviceEttn>
+			   <ein:SellerSupplierParty>
+                     <!--Optional:-->
+                     <ein:Address>
+                        <!--Optional:-->
+                        <ein:BoulevardAveneuStreetName>Piri Reis Cd. Türkiye İş Bankası Tuzla Teknoloji ve Operasyon Merkezi D Blok</ein:BoulevardAveneuStreetName>
+                        <!--Optional:-->
+                        <ein:BuildingName>ISNET</ein:BuildingName>
+                        <!--Optional:-->
+                        <ein:BuildingNumber>62</ein:BuildingNumber>
+                        <!--Optional:-->
+                        <ein:CityCode>34</ein:CityCode>
+                        <!--Optional:-->
+                        <ein:CityName>Istanbul</ein:CityName>
+                        <!--Optional:-->
+                        <ein:EMail>nettecapdestek@is.net.tr</ein:EMail>
+                        <!--Optional:-->
+                        <ein:PostalCode>34947</ein:PostalCode>
+                        <!--Optional:-->
+                        <ein:TaxOfficeName>BOĞAZİÇİ KURUMLAR VERGİ DAİRESİ</ein:TaxOfficeName>
+                        <!--Optional:-->
+                        <ein:TelephoneNumber>8502900290</ein:TelephoneNumber>
+                     </ein:Address>
+                     <ein:ReceiverName>işnet test</ein:ReceiverName>
+                     <ein:ReceiverTaxCode>4810173324</ein:ReceiverTaxCode>
+                     <!--Optional:-->
+                     <ein:SendingType>ELEKTRONIK</ein:SendingType>
+                  </ein:SellerSupplierParty>
+                 <ein:Shipment>
+   				 <ein:Delivery>
+       				 <ein:ActualDespatchDate>2022-12-19</ein:ActualDespatchDate>
+   				 </ein:Delivery>
+  			  </ein:Shipment>
+               </ein:ReceiptAdvice>
+            </ein:ReceiptAdvices>
+         </tem:request>
+      </tem:SendReceiptAdvice>
+   </soapenv:Body>
+</soapenv:Envelope>

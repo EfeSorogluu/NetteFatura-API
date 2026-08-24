@@ -1,0 +1,28 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:ein="http://schemas.datacontract.org/2004/07/EInvoice.Service.Model">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:ContestArchiveInvoice>
+         <!--Optional:-->
+         <tem:request>
+            <!--Optional:-->
+            <ein:ArchiveInvoiceList>
+               <!--Zero or more repetitions:-->
+               <ein:ArchiveInvoiceContest>
+                  <!--Optional:-->
+                  <ein:ContestDocumentNo>123123</ein:ContestDocumentNo>
+                  <!--Optional:-->
+                  <ein:ContestMethod>KEP</ein:ContestMethod>
+                  <!--Optional:-->
+                  <ein:ContestReason>Servis deneme</ein:ContestReason>
+                  <!--Optional:-->
+                  <ein:ETTN>bf2935a1-2c18-4407-b890-3d5c4f923968</ein:ETTN>
+               </ein:ArchiveInvoiceContest>
+            </ein:ArchiveInvoiceList>
+            <!--Optional:-->
+            <ein:CompanyTaxCode>4810173324</ein:CompanyTaxCode>
+            <!--Optional:-->
+            <ein:CompanyVendorNumber></ein:CompanyVendorNumber>
+         </tem:request>
+      </tem:ContestArchiveInvoice>
+   </soapenv:Body>
+</soapenv:Envelope>

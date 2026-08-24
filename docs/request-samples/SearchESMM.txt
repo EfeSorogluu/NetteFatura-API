@@ -1,0 +1,30 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:ein="http://schemas.datacontract.org/2004/07/EInvoice.Service.Model" xmlns:ein1="http://schemas.datacontract.org/2004/07/EInvoice.Service.Model.DataTypes.Enums" xmlns:ein2="http://schemas.datacontract.org/2004/07/EInvoice.Service.Model.DataModels">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:SearchESMM>
+         <!--Optional:-->
+         <tem:request>
+            <ein:CompanyTaxCode>4810173324</ein:CompanyTaxCode>
+
+            <!--Optional:-->
+            <ein:PagingRequest>
+               <!--Optional:-->
+               <ein:PageNumber>1</ein:PageNumber>
+               <!--Optional:-->
+               <ein:RecordsPerPage>50</ein:RecordsPerPage>
+            </ein:PagingRequest>
+            <!--Optional:-->
+            <!--Optional:-->
+            <ein:ResultSet>
+               <!--Optional:-->
+               <ein2:IsDetailsIncluded>true</ein2:IsDetailsIncluded>
+               <!--Optional:-->
+               <ein2:IsPDFIncluded>true</ein2:IsPDFIncluded>
+               <!--Optional:-->
+               <ein2:IsXMLIncluded>true</ein2:IsXMLIncluded>
+            </ein:ResultSet>
+            <!--Optional:-->
+         </tem:request>
+      </tem:SearchESMM>
+   </soapenv:Body>
+</soapenv:Envelope>

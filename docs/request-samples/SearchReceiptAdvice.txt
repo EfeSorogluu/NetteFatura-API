@@ -1,0 +1,38 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:ein="http://schemas.datacontract.org/2004/07/EInvoice.Service.Model">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:SearchReceiptAdvice>
+         <!--Optional:-->
+         <tem:request>
+            <!--Optional:-->
+            <ein:CompanyTaxCode>4810173324</ein:CompanyTaxCode>
+            <!--Optional:-->
+            <!--Optional:-->
+            <ein:Ettn>477416b8-feed-4a76-95ad-fd920fe6a630</ein:Ettn>
+            <!--Optional:-->
+          
+            <ein:PagingRequest>
+               <!--Optional:-->
+               <ein:PageNumber>1</ein:PageNumber>
+               <!--Optional:-->
+               <ein:RecordsPerPage>25</ein:RecordsPerPage>
+            </ein:PagingRequest>
+            <!--Optional:-->
+           
+            <ein:ReceiptAdviceDirection>Outgoing</ein:ReceiptAdviceDirection>
+
+            <ein:ResultSet>
+               <!--Optional:-->
+               <!--Optional:
+               <ein:IsHtmlIncluded>true</ein:IsHtmlIncluded>
+               <ein:IsPDFIncluded>true</ein:IsPDFIncluded>
+               <ein:IsReceiptAdviceDetailIncluded>true</ein:IsReceiptAdviceDetailIncluded>
+               -->
+               <ein:IsXMLIncluded>true</ein:IsXMLIncluded>
+            </ein:ResultSet>
+
+            <!--Optional:-->
+         </tem:request>
+      </tem:SearchReceiptAdvice>
+   </soapenv:Body>
+</soapenv:Envelope>

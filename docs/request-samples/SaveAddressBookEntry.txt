@@ -1,0 +1,33 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:ein="http://schemas.datacontract.org/2004/07/EInvoice.Service.Model">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:SaveAddressBookEntry>
+         <!--Optional:-->
+         <tem:request>
+            <!--Optional:-->
+            <ein:AddressBookEntries>
+               <!--Zero or more repetitions:-->
+               <ein:AddressBookEntry>
+                  <!--Optional:-->
+                  <ein:Address>
+                        <ein:BoulevardAveneuStreetName>İÇMELER MAH </ein:BoulevardAveneuStreetName>
+                        <ein:CityCode>34</ein:CityCode>
+                        <ein:CityName>ISTANBUL</ein:CityName>
+                        <ein:TaxOfficeCode>0</ein:TaxOfficeCode>
+                        <ein:TaxOfficeName>BÜYÜK MÜKELLEF</ein:TaxOfficeName>
+                        <ein:TelephoneNumber>2642788858111111111</ein:TelephoneNumber>
+                        <ein:TownCode>1517</ein:TownCode>
+                        <ein:TownName>BEŞİKTAŞ</ein:TownName>
+                  </ein:Address>
+                  <ein:ReceiverName> TEST ALICI</ein:ReceiverName>
+                  <!--Optional:-->
+                  <ein:ReceiverTaxCode>1234567802</ein:ReceiverTaxCode>
+                  <!--Optional:-->
+               </ein:AddressBookEntry>
+            </ein:AddressBookEntries>
+            <!--Optional:-->
+            <ein:CompanyTaxCode>1234567801</ein:CompanyTaxCode>
+ </tem:request>
+      </tem:SaveAddressBookEntry>
+   </soapenv:Body>
+</soapenv:Envelope>

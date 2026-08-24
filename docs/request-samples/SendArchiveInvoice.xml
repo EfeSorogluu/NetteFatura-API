@@ -1,0 +1,112 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:ein="http://schemas.datacontract.org/2004/07/EInvoice.Service.Model" xmlns:arr="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+   <soapenv:Header/>
+   <soapenv:Body>
+        <tem:SendArchiveInvoice xmlns="http://tempuri.org/">
+            <tem:request>
+                <ein:ArchiveInvoices xmlns:ein="http://schemas.datacontract.org/2004/07/EInvoice.Service.Model">
+                    <ein:ArchiveInvoice>
+                        <ein:CurrencyCode>TRY</ein:CurrencyCode>
+                        <ein:ExternalArchiveInvoiceCode>1212121212</ein:ExternalArchiveInvoiceCode>
+                        <ein:InvoiceCreationDate>2022-10-12</ein:InvoiceCreationDate>
+                        <ein:InvoiceDate>2022-10-10</ein:InvoiceDate>
+                        <ein:InvoiceDetails>
+                            <ein:ArchiveInvoiceDetail>
+                                <ein:CurrencyCode>TRY</ein:CurrencyCode>
+                                <ein:DiscountAmount>0</ein:DiscountAmount>
+                                <ein:DiscountRate>0</ein:DiscountRate>
+                                <ein:LineExtensionAmount>1483.05</ein:LineExtensionAmount>
+                                <ein:Note>Ä°Ã§ Hat 08/10/2022 2352483095593 Arif EkmekÃ§i ESB,SAW,ESB</ein:Note>
+                                <ein:Product>
+                                    <ein:ExternalProductCode>BDOM0235</ein:ExternalProductCode>
+                                    <ein:MeasureUnit>NIU</ein:MeasureUnit>
+                                    <ein:ProductCode>BDOM0235</ein:ProductCode>
+                                    <ein:ProductName>THY BASE FEE Ä°STÄ°SNASIZ</ein:ProductName>
+                                    <ein:ReceiverProductCode>BDOM0235</ein:ReceiverProductCode>
+                                    <ein:UnitPrice>0</ein:UnitPrice>
+                                </ein:Product>
+                                <ein:Quantity>1.0</ein:Quantity>
+                                <ein:SpecialBasisAmount>0.0</ein:SpecialBasisAmount>
+                                <ein:SpecialBasisPercent>0.0</ein:SpecialBasisPercent>
+                                <ein:SpecialBasisTaxAmount>0.0</ein:SpecialBasisTaxAmount>
+                                <ein:StockDescription>Ä°Ã§ Hat 08/10/2022 2352483095593 Arif EkmekÃ§i ESB,SAW,ESB</ein:StockDescription>
+                                <ein:VATAmount>266.95</ein:VATAmount>
+                                <ein:VATRate>18</ein:VATRate>
+                            </ein:ArchiveInvoiceDetail>
+                            <ein:ArchiveInvoiceDetail>
+                                <ein:CurrencyCode>TRY</ein:CurrencyCode>
+                                <ein:DiscountAmount>0</ein:DiscountAmount>
+                                <ein:DiscountRate>0</ein:DiscountRate>
+                                <ein:LineExtensionAmount>67.78</ein:LineExtensionAmount>
+                                <ein:Note>VQ-Alan Vergisi</ein:Note>
+                                <ein:Product>
+                                    <ein:ExternalProductCode>BDOM1235</ein:ExternalProductCode>
+                                    <ein:MeasureUnit>NIU</ein:MeasureUnit>
+                                    <ein:ProductCode>BDOM1235</ein:ProductCode>
+                                    <ein:ProductName>THY VQ Ä°STÄ°SNASIZ</ein:ProductName>
+                                    <ein:ReceiverProductCode>BDOM1235</ein:ReceiverProductCode>
+                                    <ein:UnitPrice>0</ein:UnitPrice>
+                                </ein:Product>
+                                <ein:Quantity>1.0</ein:Quantity>
+                                <ein:SpecialBasisAmount>0.0</ein:SpecialBasisAmount>
+                                <ein:SpecialBasisPercent>0.0</ein:SpecialBasisPercent>
+                                <ein:SpecialBasisTaxAmount>0.0</ein:SpecialBasisTaxAmount>
+                                <ein:StockDescription>VQ-Alan Vergisi</ein:StockDescription>
+                                <ein:TaxExemptionReason>Deniz ve hava taÅŸÄ±ma araÃ§larÄ± iÃ§in liman ve hava meydanlarÄ±nda yapÄ±lan hizmetler </ein:TaxExemptionReason>
+                                <ein:TaxExemptionReasonCode>305</ein:TaxExemptionReasonCode>
+                            </ein:ArchiveInvoiceDetail>
+                            <ein:ArchiveInvoiceDetail>
+                                <ein:CurrencyCode>TRY</ein:CurrencyCode>
+                                <ein:DiscountAmount>0</ein:DiscountAmount>
+                                <ein:DiscountRate>0</ein:DiscountRate>
+                                <ein:LineExtensionAmount>42.37</ein:LineExtensionAmount>
+                                <ein:Note>Servis Bedeli</ein:Note>
+                                <ein:Product>
+                                    <ein:ExternalProductCode>BDOM2235</ein:ExternalProductCode>
+                                    <ein:MeasureUnit>NIU</ein:MeasureUnit>
+                                    <ein:ProductCode>BDOM2235</ein:ProductCode>
+                                    <ein:ProductName>THY SERVICE FEE Ä°STÄ°SNASIZ</ein:ProductName>
+                                    <ein:ReceiverProductCode>BDOM2235</ein:ReceiverProductCode>
+                                    <ein:UnitPrice>0</ein:UnitPrice>
+                                </ein:Product>
+                                <ein:Quantity>1.0</ein:Quantity>
+                                <ein:SpecialBasisAmount>0.0</ein:SpecialBasisAmount>
+                                <ein:SpecialBasisPercent>0.0</ein:SpecialBasisPercent>
+                                <ein:SpecialBasisTaxAmount>0.0</ein:SpecialBasisTaxAmount>
+                                <ein:StockDescription>Servis Bedeli</ein:StockDescription>
+                                <ein:VATAmount>7.63</ein:VATAmount>
+                                <ein:VATRate>18</ein:VATRate>
+                            </ein:ArchiveInvoiceDetail>
+                        </ein:InvoiceDetails>
+                        <ein:InvoiceType>ISTISNA</ein:InvoiceType>
+                        <ein:Notes>
+                            <ein:string>Ä°Ã§ Hat 08/10/2022 2352483095593 Arif EkmekÃ§i ESB,SAW,ESB</ein:string>
+                            <ein:string>TRY / TR460001000798962755545002 / Ziraat BankasÄ± / Ã‡ankaya / ÅžUBE KODU : 00798</ein:string>
+                            <ein:string>TRY / TR480006400000143790226080 / Ä°ÅŸ BankasÄ± / Ã‡ukurambar / ÅžUBE KODU : 04379</ein:string>
+                        </ein:Notes>
+                        <ein:OrderDate>2022-10-10</ein:OrderDate>
+                        <ein:OrderNumber> 30-221012-150539</ein:OrderNumber>
+                        <ein:Receiver>
+                            <ein:Address>
+                                <ein:CityCode>6</ein:CityCode>
+                                <ein:EMail>sys@sys-r.com.tr</ein:EMail>
+                                <ein:TownCode>1231</ein:TownCode>
+                            </ein:Address>
+                            <ein:ReceiverName>Arif EkmekÃ§i</ein:ReceiverName>
+                            <ein:ReceiverTaxCode>23425026004</ein:ReceiverTaxCode>
+                            <ein:RecipientType>EARSIV</ein:RecipientType>
+                            <q6:SendingType xmlns:q6="http://schemas.datacontract.org/2004/07/EInvoice.Service.Model">ELEKTRONIK</q6:SendingType>
+                        </ein:Receiver>
+                        <ein:TaxExemptionReason>Deniz ve hava taÅŸÄ±ma araÃ§larÄ± iÃ§in liman ve hava meydanlarÄ±nda yapÄ±lan hizmetler </ein:TaxExemptionReason>
+                        <ein:TotalDiscountAmount>0</ein:TotalDiscountAmount>
+                        <ein:TotalLineExtensionAmount>1867.78</ein:TotalLineExtensionAmount>
+                        <ein:TotalPayableAmount>1867.78</ein:TotalPayableAmount>
+                        <ein:TotalTaxInclusiveAmount>1593.2</ein:TotalTaxInclusiveAmount>
+                        <ein:TotalVATAmount>274.58</ein:TotalVATAmount>
+                    </ein:ArchiveInvoice>
+                </ein:ArchiveInvoices>
+                <ein:CompanyTaxCode>4810173324</ein:CompanyTaxCode>
+            </tem:request>
+        </tem:SendArchiveInvoice>
+    </soapenv:Body>
+</soapenv:Envelope>
+            

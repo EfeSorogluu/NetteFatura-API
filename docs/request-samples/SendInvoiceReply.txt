@@ -1,0 +1,24 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:ein="http://schemas.datacontract.org/2004/07/EInvoice.Service.Model">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:SendInvoiceReply>
+         <!--Optional:-->
+         <tem:request>
+            <!--Optional:-->
+            <ein:CompanyTaxCode>4810173324</ein:CompanyTaxCode>
+            <!--Optional:-->
+            <ein:InvoiceReplies>
+               <!--Zero or more repetitions:-->
+               <ein:InvoiceReply>
+                  <!--Optional:-->
+                  <ein:InvoiceETTN>9346f928-3b05-40c8-b470-fa984a4abb21</ein:InvoiceETTN>
+                  <!--Optional:-->
+                  <ein:InvoiceResponse>KABUL</ein:InvoiceResponse>
+                  <!--Optional:-->
+                  <ein:InvoiceResponseDescription>Soap test </ein:InvoiceResponseDescription>
+               </ein:InvoiceReply>
+            </ein:InvoiceReplies>
+         </tem:request>
+      </tem:SendInvoiceReply>
+   </soapenv:Body>
+</soapenv:Envelope>

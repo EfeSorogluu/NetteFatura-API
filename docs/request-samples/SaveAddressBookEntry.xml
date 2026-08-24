@@ -1,0 +1,29 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:ein="http://schemas.datacontract.org/2004/07/EInvoice.Service.Model">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:SaveAddressBookEntry>
+         <!--Optional:-->
+         <tem:request>
+            <!--Optional:-->
+            <ein:AddressBookEntries>
+               <ein:AddressBookEntry>
+                  <ein:Address>
+                     <ein:BoulevardAveneuStreetName>Varsayılan , Türkiye , DENİZLİ , PAMUKKALE , , Hüseyin Yılmaz Cad. Paü Teknoloji Geliştirme Bölümü D Blok Z.10</ein:BoulevardAveneuStreetName>
+                     <ein:BuildingNumber/>
+                     <ein:CityCode>0</ein:CityCode>
+                     <ein:PostalCode>0</ein:PostalCode>
+                     <ein:TaxOfficeCode>0</ein:TaxOfficeCode>
+                     <ein:TownCode>0</ein:TownCode>
+                  </ein:Address>
+                  <ein:ExternalReceiverCode>MHN000000228962</ein:ExternalReceiverCode>
+                  <ein:ReceiverName>İSMAİL TANKAL</ein:ReceiverName>
+                  <ein:ReceiverTaxCode>16270425580</ein:ReceiverTaxCode>
+                  <ein:RecipientType>EFATURA</ein:RecipientType>
+                  <ein:SendingType>NONE</ein:SendingType>
+               </ein:AddressBookEntry>
+            </ein:AddressBookEntries>
+            <ein:CompanyTaxCode>4810173324</ein:CompanyTaxCode>
+         </tem:request>
+      </tem:SaveAddressBookEntry>
+   </soapenv:Body>
+</soapenv:Envelope>

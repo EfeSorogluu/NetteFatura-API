@@ -1,0 +1,89 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:ein="http://schemas.datacontract.org/2004/07/EInvoice.Service.Model" xmlns:arr="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:SendInvoice>
+         <tem:request>
+            <ein:CompanyTaxCode>4810173324</ein:CompanyTaxCode>
+            <ein:Invoices>
+               <ein:Invoice>
+                  <ein:CurrencyCode>TRY</ein:CurrencyCode>
+                  <ein:ExternalInvoiceCode>5525128644366773</ein:ExternalInvoiceCode>
+                  <ein:FinancialAccount>
+                     <ein:Iban>TR260004600798888000093459</ein:Iban>
+                  </ein:FinancialAccount>
+                  <ein:InvoiceDate>2025-08-26T12:54:19</ein:InvoiceDate>
+                  <ein:InvoiceDetails>
+                     <ein:InvoiceDetail>
+                        <ein:CurrencyCode>TRY</ein:CurrencyCode>
+                        <ein:LineExtensionAmount>20000</ein:LineExtensionAmount>
+                        <ein:Mensei>TR</ein:Mensei>
+                        <ein:Product>
+                           <ein:ExternalProductCode>BD0114</ein:ExternalProductCode>
+                           <ein:MeasureUnit>NIU</ein:MeasureUnit>
+                           <ein:ProductName>BEYLİKDÜZÜ 1. SINIF EĞİTİM SETİ</ein:ProductName>
+                           <ein:UnitPrice>20000</ein:UnitPrice>
+                        </ein:Product>
+                        <ein:Quantity>1</ein:Quantity>
+                        <ein:StockDescription/>
+                        <ein:TaxExemptionReason>3065 Sayılı Kanun’un 13/n Maddesi uyarınca KDVden istisna satırlar vardır.</ein:TaxExemptionReason>
+                        <ein:TaxExemptionReasonCode>351</ein:TaxExemptionReasonCode>
+                        <ein:VATAmount>0</ein:VATAmount>
+                        <ein:VATRate>0</ein:VATRate>
+                     </ein:InvoiceDetail>
+                     <ein:InvoiceDetail>
+                        <ein:CurrencyCode>TRY</ein:CurrencyCode>
+                        <ein:LineExtensionAmount>5000</ein:LineExtensionAmount>
+                        <ein:Mensei>TR</ein:Mensei>
+                        <ein:Product>
+                           <ein:ExternalProductCode>BD0115</ein:ExternalProductCode>
+                           <ein:MeasureUnit>NIU</ein:MeasureUnit>
+                           <ein:ProductName>BEYLİKDÜZÜ 1. SINIF DİJİTAL EĞİTİM SETİ</ein:ProductName>
+                           <ein:UnitPrice>5000</ein:UnitPrice>
+                        </ein:Product>
+                        <ein:Quantity>1</ein:Quantity>
+                        <ein:StockDescription/>
+                        <ein:VATAmount>1000</ein:VATAmount>
+                        <ein:VATRate>20</ein:VATRate>
+                     </ein:InvoiceDetail>
+                  </ein:InvoiceDetails>
+                  <ein:InvoiceType>SATIS</ein:InvoiceType>
+                  <ein:LastPaymentDate>2021-05-15T00:00:00</ein:LastPaymentDate>
+                  <ein:Notes>
+                     <arr:string>EFATURA DETAYLARI  IÇIN ASAGIDAKI BAGLANTIYA TIKLAYINIZ</arr:string>
+                  </ein:Notes>
+                  <ein:Receiver>
+                     <ein:Address>
+                        <ein:BoulevardAveneuStreetName>TEPE Mh. KORDON Cd. 42 Sk. ÇARŞI POLİS MERKEZİ AMİRLİĞİ MARMARİS/MUĞLA TÜRKIYE</ein:BoulevardAveneuStreetName>
+                        <ein:CityCode>48</ein:CityCode>
+                        <ein:CityName>MUĞLA</ein:CityName>
+                        <ein:TaxOfficeCode>006260</ein:TaxOfficeCode>
+                        <ein:TaxOfficeName>ULUS VD</ein:TaxOfficeName>
+                        <ein:TownCode>1517</ein:TownCode>
+                        <ein:TownName>MARMARİS</ein:TownName>
+                     </ein:Address>
+                     <ein:ReceiverName>Test Firma 05</ein:ReceiverName>
+                     <ein:ReceiverTaxCode>1234567805</ein:ReceiverTaxCode>
+                  </ein:Receiver>
+                  <ein:ReceiverBranchAddress>
+                     <ein:BoulevardAveneuStreetName>TEPE Mh. KORDON Cd. 42 Sk. ÇARŞI POLİS MERKEZİ AMİRLİĞİ MARMARİS/MUĞLA TÜRKIYE</ein:BoulevardAveneuStreetName>
+                     <ein:CityCode>48</ein:CityCode>
+                     <ein:CityName>MUĞLA</ein:CityName>
+                     <ein:TaxOfficeCode>006260</ein:TaxOfficeCode>
+                     <ein:TaxOfficeName>ULUS VD</ein:TaxOfficeName>
+                     <ein:TownCode>1517</ein:TownCode>
+                     <ein:TownName>MARMARİS</ein:TownName>
+                  </ein:ReceiverBranchAddress>
+                  <ein:ReceiverInboxTag>urn:mail:test05defaultpk@isnet.com</ein:ReceiverInboxTag>
+                  <ein:ScenarioType>TEMELFATURA</ein:ScenarioType>
+                  <ein:TaxExemptionReason>3065 Sayılı Kanun’un 13/n Maddesi uyarınca KDVden istisna satırlar vardır.</ein:TaxExemptionReason>
+                  <ein:TotalDiscountAmount>0</ein:TotalDiscountAmount>
+                  <ein:TotalLineExtensionAmount>9.56</ein:TotalLineExtensionAmount>
+                  <ein:TotalPayableAmount>10</ein:TotalPayableAmount>
+                  <ein:TotalTaxInclusiveAmount>11.28</ein:TotalTaxInclusiveAmount>
+                  <ein:TotalVATAmount>1.72</ein:TotalVATAmount>
+               </ein:Invoice>
+            </ein:Invoices>
+         </tem:request>
+      </tem:SendInvoice>
+   </soapenv:Body>
+</soapenv:Envelope>

@@ -1,0 +1,74 @@
+{
+  "name": "nettefatura-api",
+  "version": "1.0.0",
+  "description": "Modern, fully-typed Node.js & TypeScript SDK for İşNet NetteFatura SOAP Web Services",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "example:health": "tsx examples/01-health-check.ts",
+    "example:taxpayer": "tsx examples/02-check-tax-payer.ts",
+    "example:archive": "tsx examples/03-send-archive-invoice.ts",
+    "example:search": "tsx examples/04-search-invoice.ts",
+    "example:all": "tsx examples/00-test-all-endpoints.ts",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "nettefatura",
+    "isnet",
+    "efatura",
+    "e-fatura",
+    "earsiv",
+    "e-arsiv",
+    "ubl-tr",
+    "soap",
+    "gib",
+    "einvoice",
+    "sdk",
+    "typescript"
+  ],
+  "author": "Mert Efe SOROĞLU",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EfeSorogluu/NetteFatura-API.git"
+  },
+  "bugs": {
+    "url": "https://github.com/EfeSorogluu/NetteFatura-API/issues"
+  },
+  "homepage": "https://github.com/EfeSorogluu/NetteFatura-API#readme",
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "axios": "^1.7.9",
+    "fast-xml-parser": "^4.5.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.5",
+    "dotenv": "^16.4.7",
+    "tsup": "^8.3.6",
+    "tsx": "^4.19.3",
+    "typescript": "^5.7.3",
+    "vitest": "^3.0.6"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

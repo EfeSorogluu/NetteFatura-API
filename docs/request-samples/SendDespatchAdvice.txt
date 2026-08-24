@@ -1,0 +1,129 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:ein="http://schemas.datacontract.org/2004/07/EInvoice.Service.Model" xmlns:arr="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:SendDespatchAdvice>
+         <tem:request>
+            <ein:CompanyTaxCode>4810173324</ein:CompanyTaxCode>
+            <ein:DespatchAdvices>
+               <ein:DespatchAdvice>
+                  <ein:CurrencyCode>TRY</ein:CurrencyCode>
+                  <ein:DeliveryCustomerParty>
+                     <ein:Address>
+                        <ein:BoulevardAveneuStreetName>TUZLA ŞİFA MAH.</ein:BoulevardAveneuStreetName>
+                        <ein:BuildingName>SOAP</ein:BuildingName>
+                        <ein:BuildingNumber>62</ein:BuildingNumber>
+                        <ein:CityCode>0</ein:CityCode>
+                        <ein:CityName>İstanbul</ein:CityName>
+                        <ein:EMail>a@b.com</ein:EMail>
+                        <ein:FaxNumber>2345678909</ein:FaxNumber>
+                        <ein:PostalCode>34100</ein:PostalCode>
+                        <ein:TaxOfficeCode>34231</ein:TaxOfficeCode>
+                        <ein:TaxOfficeName>BOĞAZİÇİ KURUMLAR VERGİ DAİRESİ</ein:TaxOfficeName>
+                        <ein:TelephoneNumber>1345678909</ein:TelephoneNumber>
+                        <ein:TownCode>0</ein:TownCode>
+                        <ein:TownName>TUZLA</ein:TownName>
+                        <ein:WebSite>WebSite</ein:WebSite>
+                     </ein:Address>
+                     <ein:ReceiverName>İş Net Elektronik Bilgi Üretim Dağıtım Ticaret ve İletişim Hizm. A.Ş.</ein:ReceiverName>
+                     <ein:ReceiverTaxCode>4810173324</ein:ReceiverTaxCode>
+                  </ein:DeliveryCustomerParty>
+                  <ein:DespatchAdviceDate>2023-01-23T11:15:11</ein:DespatchAdviceDate>
+                  <ein:DespatchAdviceDetails>
+                     <ein:DespatchAdviceDetail>
+                        <ein:CurrencyCode>TRY</ein:CurrencyCode>
+                        <ein:DeliveryList>
+                           <ein:ActualDeliveryDate>2022-11-14T11:15:11</ein:ActualDeliveryDate>
+                           <ein:LatestDeliveryDate>2022-11-14T11:15:11</ein:LatestDeliveryDate>
+                           <ein:Shipment>
+                              <ein:ShipmentPackageList>
+                                 <ein:ShipmentPackage>
+                                    <ein:PackageId>1</ein:PackageId>
+                                    <ein:PackageQuantity>1</ein:PackageQuantity>
+                                 </ein:ShipmentPackage>
+                              </ein:ShipmentPackageList>
+                           </ein:Shipment>
+                        </ein:DeliveryList>
+                        <ein:Note/>
+                        <ein:OverSentQuantity>1</ein:OverSentQuantity>
+                        <ein:Product>
+                           <ein:ExternalProductCode>0015</ein:ExternalProductCode>
+                           <ein:MeasureUnit>NIU</ein:MeasureUnit>
+                           <ein:ProductCode>50010564</ein:ProductCode>
+                           <ein:ProductName>AR617VW-LTE4EA, 1*GE COMBO WAN, 4*GE LAN, 1*VDSL2, 2*FXS, 1*USB 2.0, 1*LTE, Wi-Fi 2.4G+5G</ein:ProductName>
+                           <ein:UnitPrice>100</ein:UnitPrice>
+                        </ein:Product>
+                        <ein:RelatedOrderLineNumber>1</ein:RelatedOrderLineNumber>
+                        <ein:SentQuantity>1</ein:SentQuantity>
+                        <ein:ToBeSentQuantity>1</ein:ToBeSentQuantity>
+                     </ein:DespatchAdviceDetail>
+                  </ein:DespatchAdviceDetails>
+                  <ein:DespatchAdviceScenarioType>TEMELIRSALIYE</ein:DespatchAdviceScenarioType>
+                  <ein:DespatchAdviceType>SEVK</ein:DespatchAdviceType>
+                  <ein:DespatchSupplierParty>
+                     <ein:Address>
+                        <ein:BoulevardAveneuStreetName>TAÅYAKA MAH.BAHA ÅIKMAN CAD.NO:39/C FETHÄ°YE - MUÄLA</ein:BoulevardAveneuStreetName>
+                        <ein:CityName>İstanbul</ein:CityName>
+                        <ein:PostalCode>34940</ein:PostalCode>
+                        <ein:TownName>TUZLA</ein:TownName>
+                     </ein:Address>
+                     <ein:ReceiverName>Ahmet Düz</ein:ReceiverName>
+                     <ein:ReceiverTaxCode>1220051383</ein:ReceiverTaxCode>
+                  </ein:DespatchSupplierParty>
+                  <ein:ExternalDespatchAdviceCode>RRT0000001222945</ein:ExternalDespatchAdviceCode>
+                  <ein:OrderDate>2022-11-14T11:15:11</ein:OrderDate>
+                  <ein:OrderNumber>TF0000003134</ein:OrderNumber>
+                  <ein:ReceiverInboxTag>urn:mail:defaultpk@isnet.com</ein:ReceiverInboxTag>
+                  <ein:Shipment>
+                     <ein:Delivery>
+                        <ein:ActualDespatchDate>2022-11-14T11:15:11</ein:ActualDespatchDate>
+                        <ein:CarrierParty>
+                           <ein:Address>
+                              <ein:BoulevardAveneuStreetName>Deneme mah.</ein:BoulevardAveneuStreetName>
+                              <ein:CityName>İstanbul</ein:CityName>
+                              <ein:Country>
+                                 <ein:Name>TR</ein:Name>
+                              </ein:Country>
+                              <ein:PostalCode>34940</ein:PostalCode>
+                              <ein:TownName>TUZLA</ein:TownName>
+                           </ein:Address>
+                           <ein:ReceiverName>Fatih Yanık</ein:ReceiverName>
+                           <ein:ReceiverTaxCode>1220051383</ein:ReceiverTaxCode>
+                        </ein:CarrierParty>
+                     </ein:Delivery>
+                     <ein:ShipmentStageList>
+                        <!--Zero or more repetitions:-->
+                        <ein:DespatchAdviceShipmentStage>
+                           <!--Optional:-->
+                           <ein:DriverPersonList>
+                              <!--Zero or more repetitions:-->
+                              <ein:Person>
+                                 <!--Optional:-->
+                                 <ein:FamilyName>Soap</ein:FamilyName>
+                                 <!--Optional:-->
+                                 <ein:FirstName>Deneme</ein:FirstName>
+                                 <!--Optional:-->
+                                 <ein:NationalityId>12345678945</ein:NationalityId>
+                                 <!--Optional:-->
+                                 <ein:Title>Şoför</ein:Title>
+                              </ein:Person>
+                           </ein:DriverPersonList>
+                           <!--Optional:-->
+                           <ein:ShipmentTransportMeans>
+                              <ein:LicensePlateId>34DNM1212</ein:LicensePlateId>
+                           </ein:ShipmentTransportMeans>
+                        </ein:DespatchAdviceShipmentStage>
+                     </ein:ShipmentStageList>
+                     <!--Optional:-->
+                     <ein:TotalValueAmount>100</ein:TotalValueAmount>
+                     <!--Optional:-->
+                     <ein:TransportEquipmentPlateList>
+                        <!--Zero or more repetitions:-->
+                        <arr:string>34HD1212</arr:string>
+                     </ein:TransportEquipmentPlateList>
+                  </ein:Shipment>
+               </ein:DespatchAdvice>
+            </ein:DespatchAdvices>
+         </tem:request>
+      </tem:SendDespatchAdvice>
+   </soapenv:Body>
+</soapenv:Envelope>

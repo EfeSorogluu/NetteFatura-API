@@ -1,0 +1,19 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:ein="http://schemas.datacontract.org/2004/07/EInvoice.Service.Model">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:CancelESMM>
+         <!--Optional:-->
+         <tem:request>
+            <!--Optional:-->
+            <ein:CompanyTaxCode>4810173324</ein:CompanyTaxCode>
+            <!--Optional:-->
+            <ein:ESMM>
+               <!--Optional:-->
+               <ein:CancellationReason>soap testi için iptal edildi.</ein:CancellationReason>
+               <!--Optional:-->
+               <ein:ETTN>1e01a85b-1864-45c1-aab7-af5203f7356f</ein:ETTN>
+            </ein:ESMM>
+         </tem:request>
+      </tem:CancelESMM>
+   </soapenv:Body>
+</soapenv:Envelope>
