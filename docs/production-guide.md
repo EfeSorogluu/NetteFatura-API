@@ -17,39 +17,45 @@
 
 ### Adım 1: Canlıya Geçiş Paketini Otomatik Üretme (Tek Komutla)
 
-`nettefatura-api` içerisinde yer alan `generateGoLivePackage` aracı ile tüm Request XML, Response XML, UBL-TR XML ve e-posta şablonunu tek adımda üretebilirsiniz:
+İşNet entegrasyon ekibinin canlıya geçiş için talep ettiği **tüm dosyaları** (e-Fatura SOAP Request/Response/UBL, e-Arşiv SOAP Request/Response/UBL ve hazır e-posta metnini) tek komutla üretebilirsiniz:
 
 ```typescript
 import { generateGoLivePackage } from 'nettefatura-api';
 
 const packageResult = await generateGoLivePackage({
   supplier: {
-    vkn: '11111111111',               // Firmanızın TCKN veya VKN Numarası
-    name: 'FİRMA TİCARİ UNVANI A.Ş.',  // Firmanızın Resmi Unvanı
+    vkn: '11111111111',                 // Firmanızın TCKN veya VKN Numarası
+    name: 'FİRMA TİCARİ UNVANI A.Ş.',    // Firmanızın Resmi Unvanı
     city: 'İSTANBUL',
     taxOffice: 'Kadıköy VD',
   },
-  staticIp: '185.xxx.xxx.xxx',        // Sunucunuzun Statik Dış IP Adresi
+  staticIp: '185.xxx.xxx.xxx',          // Sunucunuzun Statik Dış IP Adresi
+  outputDir: './isnet-golive-package',   // Dosyaların kaydedileceği klasör
 });
 
-console.log('İşNet Onaylı Fatura No:', packageResult.invoiceNumber);
-console.log('SOAP Request XML:', packageResult.requestXml);
-console.log('SOAP Response XML:', packageResult.responseXml);
-console.log('GİB UBL-TR XML:', packageResult.ublXml);
-console.log('Hazır E-Posta Şablonu:', packageResult.emailTemplate);
+console.log('e-Fatura No:', packageResult.eInvoice.invoiceNumber);
+console.log('e-Arşiv No :', packageResult.eArchive.invoiceNumber);
+console.log('Hazır E-Posta Şablonu:\n', packageResult.emailTemplate);
 ```
 
 Veya hazır terminal scriptini çalıştırabilirsiniz:
 ```bash
 npm run example:golive
 ```
-Bu komut `isnet-golive-package/` klasörü altına İşNet'e ileteceğiniz tüm XML dosyalarını ve hazır e-posta metnini otomatik olarak kaydeder.
+
+Bu komut `isnet-golive-package/` klasörü altına şu 7 dosyayı otomatik oluşturur:
+1. `00_ISNET_CANLIYA_GECIS_EPOSTASI.txt` *(İşNet'e atılacak hazır e-posta metni)*
+2. `01_efatura_soap_request.xml` *(e-Fatura SOAP İstek XML'i)*
+3. `02_efatura_soap_response.xml` *(e-Fatura Onaylı Yanıt XML'i)*
+4. `03_efatura_ubl_tr.xml` *(e-Fatura GİB UBL-TR 1.2 XML'i)*
+5. `04_earsiv_soap_request.xml` *(e-Arşiv SOAP İstek XML'i)*
+6. `05_earsiv_soap_response.xml` *(e-Arşiv Onaylı Yanıt XML'i)*
+7. `06_earsiv_ubl_tr.xml` *(e-Arşiv GİB UBL-TR 1.2 XML'i)*
 
 ### Adım 2: İşNet Entegrasyon Ekibine E-Posta İletimi
-Oluşturulan XML dosyasını ve sunucunuzun statik IP adresini aşağıdaki e-posta adreslerine iletin:
-
-- **E-Posta:** `efaturadestek@nettefatura.com.tr` / `servisyazilim@is.net.tr`
-- **Konu:** `[VKN / Firma Adı] - Canlı Ortama Geçiş ve IP Tanımlama Talebi`
+Oluşturulan `00_ISNET_CANLIYA_GECIS_EPOSTASI.txt` metnini ve XML dosyalarını ekleyerek aşağıdaki adreslere iletin:
+- **Kime:** `efaturadestek@nettefatura.com.tr`, `servisyazilim@is.net.tr`
+- **Konu:** `[FİRMA UNVANINIZ] - [VKN NUMARANIZ] - NetteFatura Canlı Ortam Tanımlama ve IP Whitelist Talebi`
 - **İçerik Şablonu:**
   > Merhaba,
   > 
