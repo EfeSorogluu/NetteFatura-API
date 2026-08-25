@@ -48,6 +48,29 @@ export class NetteFaturaClient {
   }
 
   /**
+   * İşNet NetteFatura canlıya geçiş için gerekli SOAP Request, Response ve UBL XML paketini üretir.
+   */
+  public async generateGoLivePackage(options?: {
+    supplierName?: string;
+    staticIp?: string;
+    taxOffice?: string;
+    city?: string;
+    address?: string;
+  }) {
+    const { generateGoLivePackage } = await import('./tools/go-live.tool.js');
+    return generateGoLivePackage({
+      supplier: {
+        vkn: this.config.companyTaxCode,
+        name: options?.supplierName || 'Müşteri',
+        taxOffice: options?.taxOffice,
+        city: options?.city,
+        address: options?.address,
+      },
+      staticIp: options?.staticIp,
+    });
+  }
+
+  /**
    * Kısayol: Firma kontör / bakiye sorgulama
    */
   public async getBalance() {

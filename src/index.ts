@@ -3,7 +3,16 @@ export * from './config.js';
 export * from './constants/endpoints.js';
 export * from './constants/enums.js';
 export * from './constants/namespaces.js';
-export * from './core/soap-client.js';
+
+// Tools & Go-Live
+export {
+  generateGoLivePackage,
+  type GoLivePackageOptions,
+  type GoLivePackageResult,
+} from './tools/go-live.tool.js';
+
+// Core
+export { SoapClient } from './core/soap-client.js';
 export * from './core/soap-fault.js';
 export * from './core/xml-parser.js';
 export * from './services/base.service.js';

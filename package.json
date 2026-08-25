@@ -27,6 +27,7 @@
     "example:archive": "tsx examples/03-send-archive-invoice.ts",
     "example:search": "tsx examples/04-search-invoice.ts",
     "example:all": "tsx examples/00-test-all-endpoints.ts",
+    "example:golive": "tsx examples/06-generate-golive-package.ts",
     "prepublishOnly": "npm run build"
   },
   "keywords": [

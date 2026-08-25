@@ -15,14 +15,35 @@
 
 ## 🛠️ Adım Adım Canlıya Geçiş Prosedürü
 
-### Adım 1: Test Ortamında e-Belge Gönderimi ve XML Alımı
-`nettefatura-api` içerisinde yer alan `examples/05-send-ubl-invoice.ts` veya `examples/03-send-archive-invoice.ts` betiğini çalıştırın:
+### Adım 1: Canlıya Geçiş Paketini Otomatik Üretme (Tek Komutla)
 
-```bash
-npm run example:archive
+`nettefatura-api` içerisinde yer alan `generateGoLivePackage` aracı ile tüm Request XML, Response XML, UBL-TR XML ve e-posta şablonunu tek adımda üretebilirsiniz:
+
+```typescript
+import { generateGoLivePackage } from 'nettefatura-api';
+
+const packageResult = await generateGoLivePackage({
+  supplier: {
+    vkn: '11111111111',               // Firmanızın TCKN veya VKN Numarası
+    name: 'FİRMA TİCARİ UNVANI A.Ş.',  // Firmanızın Resmi Unvanı
+    city: 'İSTANBUL',
+    taxOffice: 'Kadıköy VD',
+  },
+  staticIp: '185.xxx.xxx.xxx',        // Sunucunuzun Statik Dış IP Adresi
+});
+
+console.log('İşNet Onaylı Fatura No:', packageResult.invoiceNumber);
+console.log('SOAP Request XML:', packageResult.requestXml);
+console.log('SOAP Response XML:', packageResult.responseXml);
+console.log('GİB UBL-TR XML:', packageResult.ublXml);
+console.log('Hazır E-Posta Şablonu:', packageResult.emailTemplate);
 ```
 
-Bu işlem sonucunda `scratch/` dizininde başarılı bir UBL-TR XML dosyası ve ETTN kaydı oluşturulacaktır.
+Veya hazır terminal scriptini çalıştırabilirsiniz:
+```bash
+npm run example:golive
+```
+Bu komut `isnet-golive-package/` klasörü altına İşNet'e ileteceğiniz tüm XML dosyalarını ve hazır e-posta metnini otomatik olarak kaydeder.
 
 ### Adım 2: İşNet Entegrasyon Ekibine E-Posta İletimi
 Oluşturulan XML dosyasını ve sunucunuzun statik IP adresini aşağıdaki e-posta adreslerine iletin:

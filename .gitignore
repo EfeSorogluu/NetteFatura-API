@@ -3,5 +3,8 @@ dist
 .env
 *.log
 scratch
+isnet-golive-package
+*.xml
+*.pdf
 .DS_Store
 coverage
