@@ -1,6 +1,6 @@
 {
   "name": "nettefatura-api",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Modern, fully-typed Node.js & TypeScript SDK for İşNet NetteFatura SOAP Web Services",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
