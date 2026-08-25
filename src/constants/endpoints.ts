@@ -11,7 +11,7 @@ export const NETTEFATURA_ENDPOINTS = {
     invoiceServiceWsdl: 'https://einvoiceservice.isnet.net.tr/InvoiceService/ServiceContract/InvoiceService.svc?singleWsdl',
     addressBookService: 'https://einvoiceservice.isnet.net.tr/AddressBookService/ServiceContract/AddressBookService.svc',
     addressBookServiceWsdl: 'https://einvoiceservice.isnet.net.tr/AddressBookService/ServiceContract/AddressBookService.svc?singleWsdl',
-    portalUrl: 'https://portal.nettefatura.com.tr',
+    portalUrl: 'https://nettefatura.isnet.net.tr',
   },
 } as const;
 
