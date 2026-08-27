@@ -5,6 +5,7 @@ export interface ServiceEndpoints {
   invoiceServiceWsdl?: string;
   addressBookService: string;
   addressBookServiceWsdl?: string;
+  invoiceApi?: string;
   portalUrl?: string;
 }
 
@@ -83,6 +84,7 @@ export function resolveConfig(config: NetteFaturaConfig): ResolvedNetteFaturaCon
     invoiceServiceWsdl: config.customEndpoints?.invoiceServiceWsdl ?? defaultEndpoints.invoiceServiceWsdl,
     addressBookService: config.customEndpoints?.addressBookService ?? defaultEndpoints.addressBookService,
     addressBookServiceWsdl: config.customEndpoints?.addressBookServiceWsdl ?? defaultEndpoints.addressBookServiceWsdl,
+    invoiceApi: config.customEndpoints?.invoiceApi ?? defaultEndpoints.invoiceApi,
     portalUrl: config.customEndpoints?.portalUrl ?? defaultEndpoints.portalUrl,
   };
 

@@ -10,6 +10,7 @@ export {
   type GoLivePackageOptions,
   type GoLivePackageResult,
 } from './tools/go-live.tool.js';
+export { extractViewerKey, isUuid } from './tools/viewer.util.js';
 
 // Core
 export { SoapClient } from './core/soap-client.js';

@@ -3,6 +3,7 @@ import { SoapClient } from './core/soap-client.js';
 import { InvoiceService } from './services/invoice.service.js';
 import { AddressBookService } from './services/address-book.service.js';
 import { InvoiceBuilder, ArchiveInvoiceBuilder } from './builders/invoice.builder.js';
+import { InvoiceDirection, InvoiceDocumentType } from './constants/enums.js';
 
 export class NetteFaturaClient {
   public readonly config: ResolvedNetteFaturaConfig;
@@ -82,5 +83,86 @@ export class NetteFaturaClient {
    */
   public async getTaxPayer(taxCode: string) {
     return this.addressBook.getTaxPayer(taxCode);
+  }
+
+  /**
+   * Kısayol: Fatura görüntüleme linki (DocumentViewerLink) sorgular
+   */
+  public async getDocumentViewerLink(
+    ettnOrRequest: string | import('./types/invoice.types.js').DocumentViewerLinkRequest,
+    direction: InvoiceDirection = InvoiceDirection.Outgoing,
+    docType: InvoiceDocumentType = InvoiceDocumentType.EArchiveInvoice
+  ) {
+    return this.invoice.getDocumentViewerLink(ettnOrRequest, direction, docType);
+  }
+
+  /**
+   * Kısayol: Fatura ETTN (UUID), görüntüleme linki, indirme URL'si veya key ile faturanın PDF dosyasını Base64 olarak indirir.
+   * ETTN verildiğinde DocumentViewerLink sorgusu otomatik olarak yapılır.
+   */
+  public async getInvoicePdf(
+    ettnOrKeyOrUrl: string,
+    direction: InvoiceDirection = InvoiceDirection.Outgoing,
+    docType: InvoiceDocumentType = InvoiceDocumentType.EArchiveInvoice
+  ): Promise<string> {
+    return this.invoice.getInvoicePdf(ettnOrKeyOrUrl, direction, docType);
+  }
+
+  /**
+   * Kısayol: Fatura ETTN (UUID), görüntüleme linki, indirme URL'si veya key ile faturanın PDF dosyasını Buffer olarak indirir.
+   * ETTN verildiğinde DocumentViewerLink sorgusu otomatik olarak yapılır.
+   */
+  public async getInvoicePdfBuffer(
+    ettnOrKeyOrUrl: string,
+    direction: InvoiceDirection = InvoiceDirection.Outgoing,
+    docType: InvoiceDocumentType = InvoiceDocumentType.EArchiveInvoice
+  ): Promise<Buffer> {
+    return this.invoice.getInvoicePdfBuffer(ettnOrKeyOrUrl, direction, docType);
+  }
+
+  /**
+   * Kısayol: Fatura ETTN (UUID), görüntüleme linki, indirme URL'si veya key ile faturanın UBL-TR XML içeriğini indirir.
+   * ETTN verildiğinde DocumentViewerLink sorgusu otomatik olarak yapılır.
+   */
+  public async getInvoiceXml(
+    ettnOrKeyOrUrl: string,
+    direction: InvoiceDirection = InvoiceDirection.Outgoing,
+    docType: InvoiceDocumentType = InvoiceDocumentType.EArchiveInvoice
+  ): Promise<string> {
+    return this.invoice.getInvoiceXml(ettnOrKeyOrUrl, direction, docType);
+  }
+
+  /**
+   * Kısayol: Fatura ETTN (UUID), görüntüleme linki, indirme URL'si veya key ile faturanın UBL-TR XML içeriğini Base64 olarak indirir.
+   * ETTN verildiğinde DocumentViewerLink sorgusu otomatik olarak yapılır.
+   */
+  public async getInvoiceXmlBase64(
+    ettnOrKeyOrUrl: string,
+    direction: InvoiceDirection = InvoiceDirection.Outgoing,
+    docType: InvoiceDocumentType = InvoiceDocumentType.EArchiveInvoice
+  ): Promise<string> {
+    return this.invoice.getInvoiceXmlBase64(ettnOrKeyOrUrl, direction, docType);
+  }
+
+  /**
+   * Kısayol: ETTN numarası ile faturanın PDF dosyasını doğrudan Base64 olarak indirir
+   */
+  public async getInvoicePdfByEttn(
+    ettn: string,
+    direction: InvoiceDirection = InvoiceDirection.Outgoing,
+    docType: InvoiceDocumentType = InvoiceDocumentType.EArchiveInvoice
+  ): Promise<string> {
+    return this.invoice.getInvoicePdfByEttn(ettn, direction, docType);
+  }
+
+  /**
+   * Kısayol: ETTN numarası ile faturanın UBL-TR XML içeriğini doğrudan indirir
+   */
+  public async getInvoiceXmlByEttn(
+    ettn: string,
+    direction: InvoiceDirection = InvoiceDirection.Outgoing,
+    docType: InvoiceDocumentType = InvoiceDocumentType.EArchiveInvoice
+  ): Promise<string> {
+    return this.invoice.getInvoiceXmlByEttn(ettn, direction, docType);
   }
 }

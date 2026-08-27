@@ -1,4 +1,4 @@
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, vi } from 'vitest';
 import { NetteFaturaClient } from '../src/client.js';
 import { InvoiceBuilder, ArchiveInvoiceBuilder } from '../src/builders/invoice.builder.js';
 import { buildSoapEnvelope, parseSoapResponse, serializeToSoapXml } from '../src/core/xml-parser.js';
@@ -29,6 +29,24 @@ describe('NetteFaturaClient', () => {
     });
 
     expect(client.config.endpoints.invoiceService).toBe('https://custom-proxy.internal/invoice');
+  });
+
+  it('should delegate PDF/XML download methods to invoice service', async () => {
+    const client = new NetteFaturaClient({
+      companyTaxCode: '4810173324',
+      environment: 'test',
+    });
+
+    const getInvoicePdfSpy = vi.spyOn(client.invoice, 'getInvoicePdf').mockResolvedValue('base64pdf');
+    const getInvoiceXmlSpy = vi.spyOn(client.invoice, 'getInvoiceXml').mockResolvedValue('<xml/>');
+
+    const pdf = await client.getInvoicePdf('key-123');
+    const xml = await client.getInvoiceXml('key-123');
+
+    expect(pdf).toBe('base64pdf');
+    expect(xml).toBe('<xml/>');
+    expect(getInvoicePdfSpy).toHaveBeenCalledWith('key-123', 'Outgoing', 'EArchiveInvoice');
+    expect(getInvoiceXmlSpy).toHaveBeenCalledWith('key-123', 'Outgoing', 'EArchiveInvoice');
   });
 });
 

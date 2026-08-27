@@ -1,4 +1,6 @@
+import axios from 'axios';
 import { BaseService } from './base.service.js';
+import { extractViewerKey, isUuid } from '../tools/viewer.util.js';
 import {
   DocumentViewerLinkRequest,
   DocumentViewerLinkResponse,
@@ -287,6 +289,197 @@ export class InvoiceService extends BaseService {
       this.serviceInterface,
       payload
     );
+  }
+
+  /**
+   * Fatura görüntüleme linki (DocumentViewerLink), indirme URL'si, doğrudan key parametresi VEYA
+   * faturanın ETTN/UUID değeri ile İşNet sunucusundan faturanın PDF dosyasını indirir ve Base64 formatında string olarak döndürür.
+   * ETTN verildiğinde DocumentViewerLink sorgusu otomatik olarak yapılır.
+   *
+   * @param ettnOrKeyOrUrl Fatura ETTN (UUID), görüntüleme linki (DocumentViewerLink), indirme URL'si veya key
+   * @param direction Fatura yönü (Opsiyonel, yalnızca ETTN verildiğinde kullanılır)
+   * @param docType Belge tipi (Opsiyonel, yalnızca ETTN verildiğinde kullanılır)
+   * @returns Base64 formatında PDF string'i
+   */
+  public async getInvoicePdf(
+    ettnOrKeyOrUrl: string,
+    direction: InvoiceDirection = InvoiceDirection.Outgoing,
+    docType: InvoiceDocumentType = InvoiceDocumentType.EArchiveInvoice
+  ): Promise<string> {
+    const buffer = await this.getInvoicePdfBuffer(ettnOrKeyOrUrl, direction, docType);
+    return buffer.toString('base64');
+  }
+
+  /**
+   * Fatura görüntüleme linki (DocumentViewerLink), indirme URL'si, doğrudan key parametresi VEYA
+   * faturanın ETTN/UUID değeri ile İşNet sunucusundan faturanın PDF dosyasını indirir ve Node.js Buffer formatında döndürür.
+   * ETTN verildiğinde DocumentViewerLink sorgusu otomatik olarak yapılır.
+   *
+   * @param ettnOrKeyOrUrl Fatura ETTN (UUID), görüntüleme linki (DocumentViewerLink), indirme URL'si veya key
+   * @param direction Fatura yönü (Opsiyonel, yalnızca ETTN verildiğinde kullanılır)
+   * @param docType Belge tipi (Opsiyonel, yalnızca ETTN verildiğinde kullanılır)
+   * @returns PDF dosyasının Node.js Buffer hali
+   */
+  public async getInvoicePdfBuffer(
+    ettnOrKeyOrUrl: string,
+    direction: InvoiceDirection = InvoiceDirection.Outgoing,
+    docType: InvoiceDocumentType = InvoiceDocumentType.EArchiveInvoice
+  ): Promise<Buffer> {
+    let keyOrUrl = ettnOrKeyOrUrl;
+
+    // Eğer doğrudan UUID/ETTN girildiyse veya key/url formatında değilse linki otomatik sorgula
+    if (isUuid(ettnOrKeyOrUrl) || (!ettnOrKeyOrUrl.includes('key=') && ettnOrKeyOrUrl.length < 60)) {
+      const viewerRes = await this.getDocumentViewerLink(ettnOrKeyOrUrl, direction, docType);
+      keyOrUrl = viewerRes.HtmlUrl || viewerRes.PdfUrl || '';
+      if (!keyOrUrl) {
+        throw new Error(`ETTN (${ettnOrKeyOrUrl}) için fatura görüntüleme linki bulunamadı.`);
+      }
+    }
+
+    const key = extractViewerKey(keyOrUrl);
+    if (!key) {
+      throw new Error('Geçersiz veya boş fatura anahtarı (key/ETTN) sağlandı.');
+    }
+
+    const apiBase = this.config.endpoints.invoiceApi || 'https://einvoiceapitest.isnet.net.tr/api';
+    const cleanBase = apiBase.replace(/\/+$/, '');
+    const url = `${cleanBase}/Invoice/GetInvoicePdf?key=${encodeURIComponent(key)}`;
+
+    this.config.logger('debug', `[InvoiceService.getInvoicePdf] GET ${url}`);
+
+    const response = await axios.get<ArrayBuffer>(url, {
+      responseType: 'arraybuffer',
+      timeout: this.config.timeout,
+      headers: {
+        'Accept': 'application/pdf, application/octet-stream, */*',
+        'User-Agent': 'NetteFatura-API-Client',
+        ...this.config.headers,
+      },
+    });
+
+    if (response.status !== 200) {
+      throw new Error(`PDF indirme başarısız oldu. HTTP Status: ${response.status}`);
+    }
+
+    return Buffer.from(response.data);
+  }
+
+  /**
+   * Fatura görüntüleme linki (DocumentViewerLink), indirme URL'si, doğrudan key parametresi VEYA
+   * faturanın ETTN/UUID değeri ile İşNet sunucusundan faturanın UBL-TR XML içeriğini indirir ve ham XML string olarak döndürür.
+   * ETTN verildiğinde DocumentViewerLink sorgusu otomatik olarak yapılır.
+   *
+   * @param ettnOrKeyOrUrl Fatura ETTN (UUID), görüntüleme linki (DocumentViewerLink), indirme URL'si veya key
+   * @param direction Fatura yönü (Opsiyonel, yalnızca ETTN verildiğinde kullanılır)
+   * @param docType Belge tipi (Opsiyonel, yalnızca ETTN verildiğinde kullanılır)
+   * @returns UBL-TR XML metin içeriği (string)
+   */
+  public async getInvoiceXml(
+    ettnOrKeyOrUrl: string,
+    direction: InvoiceDirection = InvoiceDirection.Outgoing,
+    docType: InvoiceDocumentType = InvoiceDocumentType.EArchiveInvoice
+  ): Promise<string> {
+    let keyOrUrl = ettnOrKeyOrUrl;
+
+    // Eğer doğrudan UUID/ETTN girildiyse veya key/url formatında değilse linki otomatik sorgula
+    if (isUuid(ettnOrKeyOrUrl) || (!ettnOrKeyOrUrl.includes('key=') && ettnOrKeyOrUrl.length < 60)) {
+      const viewerRes = await this.getDocumentViewerLink(ettnOrKeyOrUrl, direction, docType);
+      keyOrUrl = viewerRes.HtmlUrl || viewerRes.PdfUrl || '';
+      if (!keyOrUrl) {
+        throw new Error(`ETTN (${ettnOrKeyOrUrl}) için fatura görüntüleme linki bulunamadı.`);
+      }
+    }
+
+    const key = extractViewerKey(keyOrUrl);
+    if (!key) {
+      throw new Error('Geçersiz veya boş fatura anahtarı (key/ETTN) sağlandı.');
+    }
+
+    const portalBase = this.config.endpoints.portalUrl || 'https://efatura.isnet.net.tr';
+    const cleanBase = portalBase.startsWith('http') ? portalBase.replace(/\/+$/, '') : `https://${portalBase.replace(/\/+$/, '')}`;
+    const url = `${cleanBase}/DocumentViewer/DownloadXml?key=${encodeURIComponent(key)}`;
+
+    this.config.logger('debug', `[InvoiceService.getInvoiceXml] GET ${url}`);
+
+    const response = await axios.get<string | ArrayBuffer>(url, {
+      responseType: 'text',
+      timeout: this.config.timeout,
+      headers: {
+        'Accept': 'text/xml, application/xml, application/octet-stream, */*',
+        'User-Agent': 'NetteFatura-API-Client',
+        ...this.config.headers,
+      },
+    });
+
+    if (response.status !== 200) {
+      throw new Error(`XML indirme başarısız oldu. HTTP Status: ${response.status}`);
+    }
+
+    const xml = typeof response.data === 'string' ? response.data : Buffer.from(response.data).toString('utf-8');
+    return xml;
+  }
+
+  /**
+   * Fatura görüntüleme linki (DocumentViewerLink), indirme URL'si, doğrudan key parametresi VEYA
+   * faturanın ETTN/UUID değeri ile İşNet sunucusundan faturanın UBL-TR XML içeriğini indirir ve Base64 formatında string olarak döndürür.
+   * ETTN verildiğinde DocumentViewerLink sorgusu otomatik olarak yapılır.
+   *
+   * @param ettnOrKeyOrUrl Fatura ETTN (UUID), görüntüleme linki (DocumentViewerLink), indirme URL'si veya key
+   * @param direction Fatura yönü (Opsiyonel, yalnızca ETTN verildiğinde kullanılır)
+   * @param docType Belge tipi (Opsiyonel, yalnızca ETTN verildiğinde kullanılır)
+   * @returns Base64 formatında kodlanmış UBL-TR XML string
+   */
+  public async getInvoiceXmlBase64(
+    ettnOrKeyOrUrl: string,
+    direction: InvoiceDirection = InvoiceDirection.Outgoing,
+    docType: InvoiceDocumentType = InvoiceDocumentType.EArchiveInvoice
+  ): Promise<string> {
+    const xml = await this.getInvoiceXml(ettnOrKeyOrUrl, direction, docType);
+    return Buffer.from(xml, 'utf-8').toString('base64');
+  }
+
+  /**
+   * ETTN numarası ile faturanın görüntüleme linkini (DocumentViewerLink) sorgular ve
+   * doğrudan PDF dosyasını Base64 formatında string olarak döndürür.
+   *
+   * @param ettn Faturanın UUID/ETTN değeri
+   * @param direction Fatura yönü (Giden: Outgoing / Gelen: Incoming)
+   * @param docType Belge tipi (e-Arşiv, e-Fatura vb.)
+   * @returns Base64 formatında PDF string
+   */
+  public async getInvoicePdfByEttn(
+    ettn: string,
+    direction: InvoiceDirection = InvoiceDirection.Outgoing,
+    docType: InvoiceDocumentType = InvoiceDocumentType.EArchiveInvoice
+  ): Promise<string> {
+    const viewerLink = await this.getDocumentViewerLink(ettn, direction, docType);
+    const targetUrl = viewerLink.HtmlUrl || viewerLink.PdfUrl;
+    if (!targetUrl) {
+      throw new Error(`ETTN (${ettn}) için fatura görüntüleme linki bulunamadı.`);
+    }
+    return this.getInvoicePdf(targetUrl);
+  }
+
+  /**
+   * ETTN numarası ile faturanın görüntüleme linkini (DocumentViewerLink) sorgular ve
+   * doğrudan UBL-TR XML içeriğini string olarak döndürür.
+   *
+   * @param ettn Faturanın UUID/ETTN değeri
+   * @param direction Fatura yönü (Giden: Outgoing / Gelen: Incoming)
+   * @param docType Belge tipi (e-Arşiv, e-Fatura vb.)
+   * @returns UBL-TR XML string
+   */
+  public async getInvoiceXmlByEttn(
+    ettn: string,
+    direction: InvoiceDirection = InvoiceDirection.Outgoing,
+    docType: InvoiceDocumentType = InvoiceDocumentType.EArchiveInvoice
+  ): Promise<string> {
+    const viewerLink = await this.getDocumentViewerLink(ettn, direction, docType);
+    const targetUrl = viewerLink.HtmlUrl || viewerLink.PdfUrl;
+    if (!targetUrl) {
+      throw new Error(`ETTN (${ettn}) için fatura görüntüleme linki bulunamadı.`);
+    }
+    return this.getInvoiceXml(targetUrl);
   }
 
   /**

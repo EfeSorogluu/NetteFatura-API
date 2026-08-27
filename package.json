@@ -1,6 +1,6 @@
 {
   "name": "nettefatura-api",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "Modern, fully-typed Node.js & TypeScript SDK for İşNet NetteFatura SOAP Web Services",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
@@ -28,6 +28,7 @@
     "example:search": "tsx examples/04-search-invoice.ts",
     "example:all": "tsx examples/00-test-all-endpoints.ts",
     "example:golive": "tsx examples/06-generate-golive-package.ts",
+    "example:download": "tsx examples/07-download-invoice-pdf-xml.ts",
     "prepublishOnly": "npm run build"
   },
   "keywords": [

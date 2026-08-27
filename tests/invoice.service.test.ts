@@ -234,4 +234,73 @@ describe('InvoiceService Unit Tests', () => {
     });
     expect(res.Result).toBe('Success');
   });
+
+  it('should download invoice PDF and return base64 and buffer', async () => {
+    const axios = (await import('axios')).default;
+    const fakePdfBuffer = Buffer.from('%PDF-1.4 Fake PDF Content');
+    vi.spyOn(axios, 'get').mockResolvedValueOnce({
+      status: 200,
+      data: fakePdfBuffer,
+    });
+
+    const key = 'test-key-123';
+    const base64 = await invoiceService.getInvoicePdf(key);
+    expect(base64).toBe(fakePdfBuffer.toString('base64'));
+
+    vi.spyOn(axios, 'get').mockResolvedValueOnce({
+      status: 200,
+      data: fakePdfBuffer,
+    });
+    const buffer = await invoiceService.getInvoicePdfBuffer('http://efatura.isnet.net.tr/DocumentViewer/DocumentViewerLink?key=test-key-123');
+    expect(buffer.toString('utf-8')).toContain('%PDF-1.4');
+  });
+
+  it('should download invoice XML and return raw xml and base64', async () => {
+    const axios = (await import('axios')).default;
+    const fakeXml = '<?xml version="1.0"?><Invoice><ID>GIB2026</ID></Invoice>';
+    vi.spyOn(axios, 'get').mockResolvedValueOnce({
+      status: 200,
+      data: fakeXml,
+    });
+
+    const xml = await invoiceService.getInvoiceXml('https://efatura.isnet.net.tr/DocumentViewer/DownloadXml?key=test-key-123');
+    expect(xml).toBe(fakeXml);
+
+    vi.spyOn(axios, 'get').mockResolvedValueOnce({
+      status: 200,
+      data: fakeXml,
+    });
+    const xmlBase64 = await invoiceService.getInvoiceXmlBase64('test-key-123');
+    expect(xmlBase64).toBe(Buffer.from(fakeXml, 'utf-8').toString('base64'));
+  });
+
+  it('should download PDF and XML by ETTN', async () => {
+    const axios = (await import('axios')).default;
+    const fakePdfBuffer = Buffer.from('%PDF-1.4 Fake PDF Content');
+    const fakeXml = '<?xml version="1.0"?><Invoice><ID>GIB2026</ID></Invoice>';
+
+    vi.spyOn(mockSoapClient, 'call').mockResolvedValueOnce({
+      IsSucceded: true,
+      HtmlUrl: 'http://efatura.isnet.net.tr/DocumentViewer/DocumentViewerLink?key=ettn-key-123',
+    });
+    vi.spyOn(axios, 'get').mockResolvedValueOnce({
+      status: 200,
+      data: fakePdfBuffer,
+    });
+
+    const pdfBase64 = await invoiceService.getInvoicePdfByEttn('uuid-1');
+    expect(pdfBase64).toBe(fakePdfBuffer.toString('base64'));
+
+    vi.spyOn(mockSoapClient, 'call').mockResolvedValueOnce({
+      IsSucceded: true,
+      HtmlUrl: 'http://efatura.isnet.net.tr/DocumentViewer/DocumentViewerLink?key=ettn-key-123',
+    });
+    vi.spyOn(axios, 'get').mockResolvedValueOnce({
+      status: 200,
+      data: fakeXml,
+    });
+
+    const xml = await invoiceService.getInvoiceXmlByEttn('uuid-1');
+    expect(xml).toBe(fakeXml);
+  });
 });
